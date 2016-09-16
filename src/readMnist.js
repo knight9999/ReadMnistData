@@ -8,6 +8,35 @@ zlib.gunzip( gzipContent, function(err,binary) {
   console.log( "length = " + binary.length );
   var header = readTrainingImageHeader(binary);
   console.log( JSON.stringify( header ) );
+
+
+  var showData = function (num) {
+
+    var buf = readTrainingImages(num,binary,header);
+    var arr = printImage(buf,header);
+    for (var i=0;i<arr.length;i++) {
+      var line = arr[i].map( function(x) {
+        if (x<128) {
+          return " ";
+        } else if (x<172) {
+          return "+";
+        } else {
+          return "*";
+        }
+      }).join("");
+      console.log( line  );
+    }
+  }
+
+  showData(0);
+
+  showData(1);
+
+  showData(2);
+
+  showData(3);
+
+
 } );
 
 
@@ -21,4 +50,24 @@ function readTrainingImageHeader(binary) {
           number_of_images : number_of_images ,
           number_of_rows : number_of_rows ,
           number_of_columns : number_of_columns };
+}
+
+function readTrainingImages(number,binary,header) {
+  if (header == null) {
+    header = readTrainingImageHeader(binary);
+  }
+  var size = header.number_of_rows * header.number_of_columns;
+  return binary.slice( 16 + number * size , 16 + (number + 1 ) * size );
+}
+
+function printImage(binary,header) {
+  var image = [];
+  for (var y = 0; y<header.number_of_rows; y++ ) {
+    var list = [];
+    for (var x = 0; x<header.number_of_columns; x++ ) {
+      list[x] = binary[y*header.number_of_columns+x];
+    }
+    image[y] = list;
+  }
+  return image;
 }
