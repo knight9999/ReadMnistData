@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/knight9999/ReadMnistData.git"
+    "url": "git+https://github.com/knight9999/read-mninst-data.git"
   },
   "author": "knaito",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/knight9999/ReadMnistData/issues"
+    "url": "https://github.com/knight9999/read-mninst-data.issues"
   },
-  "homepage": "https://github.com/knight9999/ReadMnistData#readme",
+  "homepage": "https://github.com/knight9999/read-mninst-data#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-download": "0.0.1"
