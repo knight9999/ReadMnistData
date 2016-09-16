@@ -11,9 +11,13 @@
     "url": "git+https://github.com/knight9999/ReadMnistData.git"
   },
   "author": "knaito",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/knight9999/ReadMnistData/issues"
   },
-  "homepage": "https://github.com/knight9999/ReadMnistData#readme"
+  "homepage": "https://github.com/knight9999/ReadMnistData#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-download": "0.0.1"
+  }
 }
